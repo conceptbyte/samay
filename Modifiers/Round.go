@@ -1,7 +1,7 @@
 package Modifiers
 
 import (
-    "time"
+	"time"
 )
 
 const NEGATE int = -1
@@ -11,34 +11,34 @@ const DAYS_PER_WEEK int = 7
 
 // Get the start of hour
 func (samay Samay) StartOfHour() Samay {
-    return Create(samay.Add(time.Duration(NEGATE * samay.Time.Minute()) * time.Minute))
+	return Create(samay.Add(time.Duration(NEGATE*samay.Time.Minute()) * time.Minute))
 }
 
 // Get the end of hour
 func (samay Samay) EndOfHour() Samay {
-    return Create(samay.Add(time.Duration(MINUTES_PER_HOUR - samay.Time.Minute()) * time.Minute))
+	return Create(samay.Add(time.Duration(MINUTES_PER_HOUR-samay.Time.Minute()) * time.Minute))
 }
 
 // Get the start of day
 func (samay Samay) StartOfDay() Samay {
-    d := time.Duration(NEGATE * samay.Time.Hour() * MINUTES_PER_HOUR + samay.Time.Minute()) * time.Minute
-    return Create(samay.Add(d))
+	d := time.Duration(NEGATE*samay.Time.Hour()*MINUTES_PER_HOUR+samay.Time.Minute()) * time.Minute
+	return Create(samay.Add(d))
 }
 
 // Get the end of day
 func (samay Samay) EndOfDay() Samay {
-    d := time.Duration(MINUTES_PER_DAY - (samay.Time.Hour() * MINUTES_PER_HOUR + samay.Time.Minute())) * time.Minute
-    return Create(samay.Add(d))
+	d := time.Duration(MINUTES_PER_DAY-(samay.Time.Hour()*MINUTES_PER_HOUR+samay.Time.Minute())) * time.Minute
+	return Create(samay.Add(d))
 }
 
 // Get the start of week
 func (samay Samay) StartOfWeek() Samay {
-    day := int(samay.Weekday()) - 1
-    return Create(samay.Time.Add(time.Duration(NEGATE * day * MINUTES_PER_DAY) * time.Minute)).StartOfDay()
+	day := int(samay.Weekday()) - 1
+	return Create(samay.Time.Add(time.Duration(NEGATE*day*MINUTES_PER_DAY) * time.Minute)).StartOfDay()
 }
 
 // Get the end of week
 func (samay Samay) EndOfWeek() Samay {
-    day := DAYS_PER_WEEK - int(samay.Weekday())
-    return Create(samay.Add(time.Duration(day * MINUTES_PER_DAY) * time.Minute)).EndOfDay()
+	day := DAYS_PER_WEEK - int(samay.Weekday())
+	return Create(samay.Add(time.Duration(day*MINUTES_PER_DAY) * time.Minute)).EndOfDay()
 }

@@ -1,18 +1,18 @@
 package Modifiers
 
 import (
-    "time"
-    "fmt"
+	"fmt"
+	"time"
 )
 
 // Samay object
 type Samay struct {
-    time.Time
+	time.Time
 }
 
 // Pass object of type Samay
 func Create(t time.Time) Samay {
-    return Samay{t}
+	return Samay{t}
 }
 
 // Console printer
