@@ -1,64 +1,40 @@
 package Modifiers
 
-// /**
-//  * Subtract nano seconds from the given time
-//  */
-// func (samay Samay) SubtractNanoSeconds(interval int64) Samay {
-// 	//
-// }
+import (
+	"time"
+)
 
-// /**
-//  * Subtract milli seconds from the given time
-//  */
-// func (samay Samay) SubtractMilliSeconds(interval int64) Samay {
-// 	//
-// }
+/**
+ * Subtract hours from the given time
+ */
+func (samay *Samay) SubtractHours(interval int) *Samay {
+	return Create(samay.Add(time.Duration(NEGATE*interval*MINUTES_PER_HOUR) * time.Minute))
+}
 
-// /**
-//  * Subtract seconds from the given time
-//  */
-// func (samay Samay) SubtractSeconds(interval int64) Samay {
-// 	//
-// }
+/**
+ * Subtract days from the given time
+ */
+func (samay *Samay) SubtractDays(interval int) *Samay {
+	return samay.SubtractHours(interval * HOURS_PER_DAY)
+}
 
-// /**
-//  * Subtract minutes from the given time
-//  */
-// func (samay Samay) SubtractMinutes(interval int64) Samay {
-// 	//
-// }
+/**
+ * Subtract weeks from the given time
+ */
+func (samay *Samay) SubtractWeeks(interval int) *Samay {
+	return samay.SubtractDays(interval * DAYS_PER_WEEK)
+}
 
-// *
-//  * Subtract hours from the given time
+/**
+ * Subtract months from the given time
+ */
+func (samay *Samay) SubtractMonths(interval int) *Samay {
+	return Create(samay.Time.AddDate(0, (NEGATE * interval), 0))
+}
 
-// func (samay Samay) SubtractHours(interval int64) Samay {
-// 	//
-// }
-
-// /**
-//  * Subtract days from the given time
-//  */
-// func (samay Samay) SubtractDays(interval int64) Samay {
-// 	//
-// }
-
-// /**
-//  * Subtract weeks from the given time
-//  */
-// func (samay Samay) SubtractWeeks(interval int64) Samay {
-// 	//
-// }
-
-// /**
-//  * Subtract months from the given time
-//  */
-// func (samay Samay) SubtractMonths(interval int64) Samay {
-// 	//
-// }
-
-// /**
-//  * Subtract years from the given time
-//  */
-// func (samay Samay) SubtractYears(interval int64) Samay {
-// 	//
-// }
+/**
+ * Subtract years from the given time
+ */
+func (samay *Samay) SubtractYears(interval int) *Samay {
+	return Create(samay.Time.AddDate((NEGATE * interval), 0, 0))
+}

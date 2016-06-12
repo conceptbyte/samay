@@ -4,11 +4,6 @@ import (
 	"time"
 )
 
-const NEGATE int = -1
-const MINUTES_PER_HOUR int = 60
-const MINUTES_PER_DAY int = 1439
-const DAYS_PER_WEEK int = 7
-
 /**
  * Get the start of hour
  * For a given time t, it return the first minute of the hour.
