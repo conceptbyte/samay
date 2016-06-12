@@ -1,5 +1,5 @@
 # Samay
-Samay is a immutable date/time manipulation library built in GoLang. It uses a fluent API and provides functions for
+Samay is a date/time manipulation library built in GoLang. It uses a fluent API and provides functions for
 
 - Date time Formatting
 - Rounding of date and time
