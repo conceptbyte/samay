@@ -1,19 +1,19 @@
 package Modifiers
 
 import (
-	"fmt"
 	"time"
 )
 
-// Samay object
+/**
+ * Samay construct
+ */
 type Samay struct {
 	time.Time
 }
 
-// Pass object of type Samay
-func Create(t time.Time) Samay {
-	return Samay{t}
+/**
+ * Named constructor of Samay
+ */
+func Create(t time.Time) *Samay {
+	return &Samay{t}
 }
-
-// Console printer
-var p = fmt.Println

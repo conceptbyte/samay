@@ -1,7 +1,6 @@
 package Modifiers
 
 import (
-	Samay "../Modifiers"
 	"testing"
 	"time"
 )
@@ -15,7 +14,7 @@ func TestStartOfHour(t *testing.T) {
 	one, _ := time.Parse(layout, "Thu, 05/19/11, 10:47PM")
 	two, _ := time.Parse(layout, "Thu, 05/19/11, 10:00PM")
 
-	start := Samay.Create(one).StartOfHour()
+	start := Create(one).StartOfHour()
 
 	if start.Time != two {
 		t.Error("Assertion did not match")
@@ -31,7 +30,7 @@ func TestEndOfHour(t *testing.T) {
 	one, _ := time.Parse(layout, "Thu, 05/19/11, 10:47PM")
 	two, _ := time.Parse(layout, "Thu, 05/19/11, 11:00PM")
 
-	start := Samay.Create(one).EndOfHour()
+	start := Create(one).EndOfHour()
 
 	if start.Time != two {
 		t.Error("Assertion did not match")
@@ -47,7 +46,7 @@ func TestStartOfDay(t *testing.T) {
 	one, _ := time.Parse(layout, "Thu, 05/19/11, 10:47PM")
 	two, _ := time.Parse(layout, "Thu, 05/19/11, 00:00AM")
 
-	start := Samay.Create(one).StartOfDay()
+	start := Create(one).StartOfDay()
 
 	if start.Time != two {
 		t.Error("Assertion did not match")
@@ -63,7 +62,7 @@ func TestEndOfDay(t *testing.T) {
 	one, _ := time.Parse(layout, "Thu, 05/19/11, 10:47PM")
 	two, _ := time.Parse(layout, "Thu, 05/19/11, 11:59PM")
 
-	start := Samay.Create(one).EndOfDay()
+	start := Create(one).EndOfDay()
 
 	if start.Time != two {
 		t.Error("Assertion did not match")
@@ -77,9 +76,9 @@ func TestEndOfDay(t *testing.T) {
 func TestStartOfWeek(t *testing.T) {
 	layout := "Mon, 01/02/06, 03:04PM"
 	one, _ := time.Parse(layout, "Thu, 05/19/11, 10:47PM")
-	two, _ := time.Parse(layout, "Thu, 05/15/11, 00:00AM")
+	two, _ := time.Parse(layout, "Thu, 05/16/11, 00:00AM")
 
-	start := Samay.Create(one).StartOfWeek()
+	start := Create(one).StartOfWeek()
 
 	if start.Time != two {
 		t.Error("Assertion did not match")
@@ -95,7 +94,7 @@ func TestEndOfWeek(t *testing.T) {
 	one, _ := time.Parse(layout, "Thu, 05/19/11, 10:47PM")
 	two, _ := time.Parse(layout, "Thu, 05/22/11, 11:59PM")
 
-	start := Samay.Create(one).EndOfWeek()
+	start := Create(one).EndOfWeek()
 
 	if start.Time != two {
 		t.Error("Assertion did not match")
